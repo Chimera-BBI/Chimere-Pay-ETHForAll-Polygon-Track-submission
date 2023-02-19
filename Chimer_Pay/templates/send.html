@@ -2,14 +2,14 @@
 {% block content %}
 
     <div class="container mt-5 text-light">
-        <h1>Ethereum Mobile Payments</h1>
+        <h1>Polygon Mobile Payments</h1>
         <form id="Send_Crypto" method="POST" class="form-register"  enctype="multipart/form-data" >
             <div class="form-group">
                 <label for="to_address">To (Mobile Phone Number):</label>
                 <input type="text" class="form-control" id="to_address" name="to_address" value="">
             </div>
             <div class="form-group">
-                <label for="value">Value (In Eth):</label>
+                <label for="value">Value (In Matic):</label>
                 <input type="text" class="form-control" id="value" name="cvalue" value="">
                 <!-- <input type="submit" formaction={{url_for("GetAddress")}} value="Submit OTP"   title="Submit OTP"    class="btn btn-primary" name="submit-otp"   /> -->
 
@@ -18,13 +18,13 @@
             <!-- <button class="sendEthButton btn btn-primary">Send Eth</button> -->
 
         </form>
-        <button class="sendEthButton btn" style="color: gold; background:black">Send Eth</button>
+        <button class="sendEthButton btn" style="color: gold; background:black">Send Matic</button>
     </div>
 
     <div class="container mt-5 text-light">
         Balance: {{balance}}
         <br>
-        Eth Address: {{session["Recieving Address"]}}
+        Polygon Address: {{session["Recieving Address"]}}
         <br>
         Phone Number: {{session["phone_number"]}}
         <br>
