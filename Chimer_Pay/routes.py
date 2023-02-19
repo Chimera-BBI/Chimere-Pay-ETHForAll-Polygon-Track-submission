@@ -262,7 +262,12 @@ def get_balance_eth(address):
 @app.route("/send")
 @SessionCheck(Name="Check Phone Account Link")
 def send():
-    balance = get_balance_eth(session["Recieving Address"])
+    try:
+        balance = get_balance_eth(session["Recieving Address"])
+    except:
+        print ("Error in account")
+        
+    balance = "Not connected"
     return render_template("send.html",balance=balance)
 
 

@@ -23,7 +23,7 @@ RUN apt-get install -y libxml2-dev libxslt-dev python-dev
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-COPY . .
+COPY ./requirements.txt .
 
 RUN apt-get update && apt-get install -y \
     software-properties-common

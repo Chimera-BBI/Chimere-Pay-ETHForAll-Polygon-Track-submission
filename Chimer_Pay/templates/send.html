@@ -88,16 +88,24 @@
 
 
 
-        function SendEth(accounts) {
+        async function SendEth(accounts) {
 
             //send_to = document.getElementsByName("to_address")[0].value;
 
+            console.log("accounts -->  ",accounts)
+            if(accounts.length<1)
+            {
+                accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            }
+
+            console.log("accounts -->  ",accounts)
 
             send_to = GetAddress()
 
             send_value = document.getElementsByName("cvalue")[0].value;
             send_value =  "0x" + Web3.utils.toBN(Web3.utils.toWei(send_value, "ether")).toString(16);
-            para = get_send_parameters(accounts,send_to = send_to,send_value = send_value);
+            para = get_send_parameters(accounts,send_to = send_to,  send_value = send_value);
+
             // Send a request to the Ethereum network to send a transaction
 
             ethereum.request({ method: 'eth_sendTransaction', params: [para], })

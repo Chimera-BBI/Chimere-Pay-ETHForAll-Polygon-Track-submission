@@ -33,11 +33,16 @@ async function get_chain_id() {
     
 
     const provider = window.ethereum;
-    chainId = await provider.request({ method: "eth_chainId" });
-    console.log(chainId)
-    const GorliTestChainId = '0x5';
+    // chainId = await provider.request({ method: "eth_chainId" });
+    const web3 = new Web3(provider);
+    const chainId = await web3.eth.net.getId();
+    
 
-    if(chainId === GorliTestChainId){
+    console.log(chainId)
+    
+    const GorliTestChainId = '0x80001';
+
+    if("0x"+chainId === GorliTestChainId){
     console.log("Bravo!, you are on the correct network");
     }else{
     console.log("oulalal, switch to the correct network");
