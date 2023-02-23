@@ -2,10 +2,9 @@
 - opensesame
 
 # Docker Execution
-You can run the followinf code to host application in docker 
+You can run the following code to host application in docker 
 - docker build --progress=plain -f "./Dockerfile" -t chimera_app .;
-- docker run -e TZ=UTC+5:30 -d --restart=always  -p 80:3000 --name private-chimera-pay chimera_app "python3" "app.py"
-
+- docker run -e TZ=UTC+5:30 -it --restart=always  --workdir="/chimera/code_mount" -v "$(pwd)":"/chimera/code_mount" -p 80:3000 --name private-chimera-pay chimera_app
 # Chimere-Pay-EthforAll-Hack
 This repo is for submission for the Eth for All hack
 
